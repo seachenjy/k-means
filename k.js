@@ -1,7 +1,7 @@
 //k-means
 var test_config = {
     max_klen:3,
-    vector_len:50,
+    vector_len:100,
     width:700,
     height:680,
     max_iter:5,
@@ -9,9 +9,11 @@ var test_config = {
 }
 
 async function start(canvasID){
-    document.getElementById("msg").style.display="none"
+    document.getElementById("msg").style.visibility="hidden"
     test_config.max_iter = parseInt(document.getElementById("max_iter").value) || 5
-
+    test_config.vector_len = parseInt(document.getElementById("vector_len").value) || 100
+    test_config.max_klen = parseInt(document.getElementById("max_klen").value) || 3
+    
     test_config.stage = document.getElementById(canvasID).getContext("2d")
     
     //随机数据
@@ -79,7 +81,7 @@ async function start(canvasID){
             ok=true
         }
     }
-    document.getElementById("msg").style.display="block"
+    document.getElementById("msg").style.visibility="visible"
 }
 
 async function draw(){
