@@ -5,25 +5,41 @@ var test_config = {
     width:700,
     height:680,
     max_iter:5,
+    vectors:[],
     ks:[]
 }
 
-async function start(canvasID){
+/**
+ * 
+ * @param {*} canvasID 
+ * @param {bool} createNewData if true the will be create new test data , The premise is that the data has been generated
+ */
+async function start(canvasID,createNewData){
     document.getElementById("msg").style.visibility="hidden"
     test_config.max_iter = parseInt(document.getElementById("max_iter").value) || 5
-    test_config.vector_len = parseInt(document.getElementById("vector_len").value) || 100
+    var vector_len = parseInt(document.getElementById("vector_len").value) || 100
     test_config.max_klen = parseInt(document.getElementById("max_klen").value) || 3
-    
-    test_config.stage = document.getElementById(canvasID).getContext("2d")
-    
-    //随机数据
-    test_config.vectors = []
 
-    //生成随机数据
-    for(let i=0;i<test_config.vector_len;i++){
-        let i_head = Math.ceil(Math.random()*test_config.width)
-        let j_head = Math.ceil(Math.random()*test_config.height)
-        test_config.vectors.push([i_head,j_head])
+    //change vector len will be create new test datas
+    if (test_config.vector_len != vector_len && !createNewData){
+        createNewData = true
+    }
+
+    test_config.vector_len = vector_len
+    
+    if (test_config.vectors.length <= 0 && !createNewData )  {
+        alert("No data, click New Button, create new test data")
+        return 
+    }
+    if(createNewData){
+        test_config.stage = document.getElementById(canvasID).getContext("2d")
+
+        //create new test datas
+        for(let i=0;i<test_config.vector_len;i++){
+            let i_head = Math.ceil(Math.random()*test_config.width)
+            let j_head = Math.ceil(Math.random()*test_config.height)
+            test_config.vectors.push([i_head,j_head])
+        }
     }
     
     //随机k

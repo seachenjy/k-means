@@ -6,7 +6,7 @@
     </head>
     <body style="background:#eee;">
         <h1>k-means <span style="color:rgb(55, 204, 18);visibility:hidden;" id="msg">Work done</span></h1>
-        <div><label>iterations:</label><input style="width:8em;" type="text" value="5" id="max_iter"/>&nbsp;<label>vector_len:</label><input style="width:8em;" type="text" value="100" id="vector_len"/>&nbsp;<label>k_len:</label><input style="width:8em;" type="text" value="3" id="max_klen"/>&nbsp;<button onclick="start('main')">start</button></div>
+        <div><label>iterations:</label><input style="width:8em;" type="text" value="5" id="max_iter"/>&nbsp;<label>vector_len:</label><input style="width:8em;" type="text" value="100" id="vector_len"/>&nbsp;<label>k_len:</label><input style="width:8em;" type="text" value="3" id="max_klen"/>&nbsp;<button onclick="start('main',true)">new</button><button onclick="start('main',false)">restart</button></div>
         <br/>
         <div><canvas id="main" width=700 height=680 style="background:#fff;width:700px;height:680px;"></canvas></div>
 
