@@ -33,7 +33,7 @@ async function start(canvasID,createNewData){
     }
     if(createNewData){
         test_config.stage = document.getElementById(canvasID).getContext("2d")
-
+        test_config.vectors = []
         //create new test datas
         for(let i=0;i<test_config.vector_len;i++){
             let i_head = Math.ceil(Math.random()*test_config.width)
