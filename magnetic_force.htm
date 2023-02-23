@@ -1,0 +1,37 @@
+<html lang="zh-cn">
+    <head>
+        <title>magnetic_force</title>
+        <meta charset="utf-8" />
+        <style>
+            #player {
+                display: grid;
+                grid-template-columns: repeat(12, 20px);
+                grid-template-rows: repeat(12, 20px);
+            }
+            #player span {
+                box-sizing: border-box;
+                border:1px solid #fff;
+                background:#ccc;
+                display: block;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body style="background:#eee;">
+        <div id="player">
+            
+        </div>
+
+        <script>
+            const data = []
+            for(let i=0;i<12*12;i++){
+                data.push(Math.ceil(Math.random()*10))
+            }
+            data.map(item=>{
+                let span = document.createElement('span')
+                span.innerText=item
+                document.querySelector("#player").append(span)
+            })
+        </script>
+    </body>
+</html>
