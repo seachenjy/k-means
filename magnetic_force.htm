@@ -21,17 +21,27 @@
         <div id="player">
             
         </div>
-
+        <button onclick="evolution()">Evolution</button>
         <script>
-            const data = []
-            for(let i=0;i<12*12;i++){
-                data.push(Math.ceil(Math.random()*10))
+            const buildData=function(max){
+                const data = []
+                for(let i=0;i<max*max;i++){
+                    data.push(Math.ceil(Math.random()*10))
+                }
+                return data
             }
-            data.map(item=>{
-                let span = document.createElement('span')
-                span.innerText=item
-                document.querySelector("#player").append(span)
-            })
+            const render = function(data){
+                data.map(item=>{
+                    let span = document.createElement('span')
+                    span.innerText=item
+                    document.querySelector("#player").append(span)
+                })
+            }
+            const evolution=function(){
+
+            }
+            const data = buildData(12)
+            render(data)
         </script>
     </body>
 </html>
